@@ -63,5 +63,13 @@ input:hover {
     justify-content: end;
 }
 .button{
-    margin-left: 15px;
+  border-radius: 10px;
+  border-color: #c2ad74;
+  height: 50px;
+  width: 50px;
+  margin-left: 15px;
+  background-color: white;
+}
+.button:focus{
+  background-color: #c2ad74;
 }
