@@ -1,14 +1,19 @@
-import "./App.css";
+import Home from "../logoAgence.svg";
+import Favorites from "../heart.svg";
+import Menu from "../menu.svg";
+import Twitter from "../twitter.svg";
+import Fb from "../facebook.svg";
+import Pinterest from "../pinterest.svg";
+import Glass from "./glass.svg";
 import { Link } from "react-router-dom";
-import Home from "./logoAgence.svg";
-import Favorites from "./heart.svg";
-import Menu from "./menu.svg";
-import Twitter from "./twitter.svg";
-import Fb from "./facebook.svg";
-import Pinterest from "./pinterest.svg";
-import "./App.css";
+import "./achats.css";
+import { getList } from "./list";
+import Lodging1 from "./lodging1.svg";
+import LittleHeart from "./littleHeart.svg";
+import Envelope from "./envelope.svg";
 
-export default function App() {
+export default function Achats() {
+  let achats = getList();
   return (
     <div style={{ width: "100%", height: "100%" }}>
       <header>
@@ -47,17 +52,41 @@ export default function App() {
         </nav>
       </header>
       <main>
-        <Link to="/exclu" className="exclu">
-          <div className="exclu-content"></div>
-          <div className="descriptionExclu">
-            <h2>House Holiday</h2>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s
-            </p>
+        <div className="achat-content">
+          <h1 style={{ color: "#C2AD74", fontSize: "35px" }}>Achats</h1>
+          <div className="search">
+            <input maxLength="14" placeholder="Rechercher..." />
+            <button className="glass">
+              <img src={Glass} className="glass" alt="glass" />
+            </button>
           </div>
-        </Link>
+        </div>
+        <div>
+          <div className="lodging-content">
+            {achats.map((achat) => (
+              <div className="choice-lodging">
+                <Link to={`/achats/${achat.title}`} key={achat.title}>
+                  <img src={Lodging1} alt="lodging" />
+                </Link>
+                <div className="info-lodging">
+                  <h2 className="info1">{achat.title}</h2>
+                  <div className="info2">{achat.price}</div>
+                </div>
+                <div className="info3">{achat.localisation}</div>
+                <div className="buttons">
+                <Link to="/pinterest" className="button">
+              {" "}
+              <img src={LittleHeart} alt="littleheart" />
+            </Link>
+            <Link to="/Envelope" className="button">
+              {" "}
+              <img src={Envelope} alt="envelope" />
+            </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </main>
       <footer
         style={{
