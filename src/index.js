@@ -8,6 +8,8 @@ import Locations from "./header/locations";
 import Favoris from "./header/favoris";
 import Menu from "./header/menu";
 import Exclu from "./exclu";
+import History from "./footer/history"
+import Services from "./footer/services"
 
 const rootElement = document.getElementById("root");
 render(
@@ -22,6 +24,8 @@ render(
       <Route path="locations" element={<Locations />} />
       <Route path="favoris" element={<Favoris />} />
       <Route path="exclu" element={<Exclu />} />
+      <Route path="history" element={<History />} />
+      <Route path="services" element={<Services />} />
     </Routes>
   </BrowserRouter>,
   rootElement

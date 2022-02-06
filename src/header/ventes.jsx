@@ -57,6 +57,7 @@ export default function Ventes() {
           <h1 style={{ color: "#C2AD74", fontSize: "35px" }}>Achats</h1>
           <div className="search">
             <input
+              className="input"
               value={searchParams.get("filter") || ""}
               onChange={(event) => {
                 let filter = event.target.value;

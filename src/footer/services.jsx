@@ -1,20 +1,27 @@
+import "../App.css";
+import "./service.css";
+import { Outlet, Link } from "react-router-dom";
 import Home from "../logoAgence.svg";
 import Favorites from "../heart.svg";
 import Menu from "../menu.svg";
 import Twitter from "../twitter.svg";
 import Fb from "../facebook.svg";
 import Pinterest from "../pinterest.svg";
-import Glass from "./svg/glass.svg";
-import { Link, useSearchParams } from "react-router-dom";
-import "./lodging.css";
-import { getList } from "./list";
-import Lodging1 from "./svg/lodging1.svg";
-import LittleHeart from "./svg/littleHeart.svg";
-import Envelope from "./svg/envelope.svg";
+import Id from "./id.svg";
 
-export default function Achats() {
-  let achats = getList();
-  let [searchParams, setSearchParams] = useSearchParams();
+export default function Services() {
+  // const inputRef = React.createRef(null);
+
+  // let [words, setWords] = useState([]);
+
+  // const append = (value) => {
+  //   if (value.trim()) {
+  //     const item = { id: nanoid(), value, isDone: false, isHidden: false };
+  //     setWords([...words, item]);
+  //     inputRef.current.value = "";
+  //   }
+  // };
+
   return (
     <div style={{ width: "100%", height: "100%" }}>
       <header>
@@ -51,61 +58,40 @@ export default function Achats() {
             </div>
           </div>
         </nav>
+        <Outlet />
       </header>
       <main>
-        <div className="achat-content">
-          <h1 style={{ color: "#C2AD74", fontSize: "35px" }}>Achats</h1>
-          <div className="search">
-            <input
-              className="input"
-              value={searchParams.get("filter") || ""}
-              onChange={(event) => {
-                let filter = event.target.value;
-                if (filter) {
-                  setSearchParams({ filter });
-                } else {
-                  setSearchParams({});
-                }
-              }}
-              maxLength="14"
-              placeholder="Rechercher..."
-            />
-            <button className="glass">
-              <img src={Glass} className="glass" alt="glass" />
+        <div className="service-content">
+          <h1
+            style={{
+              fontFamily: "serif",
+              textAlign: "center",
+              marginBottom: "80px",
+            }}
+          >
+            Pour accéder à votre espace Artimmo, utilisez vos identifiants
+            habituels.
+          </h1>
+          <div className="content-id">
+            <div className="id">
+              <img src={Id} alt="id" style={{ marginRight: "20px" }} />{" "}
+              <input
+                maxLength="14"
+                placeholder="identifiant"
+                className="inputId"
+              />
+            </div>
+            <button
+              className="connexion"
+              // onClick={() => append(inputRef.current.value)}
+            >
+              Connexion
             </button>
           </div>
         </div>
-        <div>
-          <div className="lodging-content">
-            {achats
-              .filter((achat) => {
-                let filter = searchParams.get("filter");
-                if (!filter) return true;
-                let title = achat.title.toLowerCase();
-                return title.startsWith(filter.toLowerCase());
-              })
-              .map((achat) => (
-                <div className="choice-lodging">
-                  <Link to={`/achats/${achat.title}`} key={achat.title}>
-                    <img src={Lodging1} alt="lodging" />
-                  </Link>
-                  <div className="info-lodging">
-                    <h2 className="info1">{achat.title}</h2>
-                    <div className="info2">{achat.price}</div>
-                  </div>
-                  <div className="info3">{achat.localisation}</div>
-                  <div className="buttons">
-                    <button className="button">
-                      <img src={LittleHeart} alt="littleheart" />
-                    </button>
-                    <button className="button">
-                      <img src={Envelope} alt="envelope" />
-                    </button>
-                  </div>
-                </div>
-              ))}
-          </div>
-        </div>
+        {/* <div>
+          <p className="text">{words.value}</p>
+        </div> */}
       </main>
       <footer
         style={{

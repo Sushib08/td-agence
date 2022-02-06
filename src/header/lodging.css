@@ -4,7 +4,7 @@
   margin-left: 200px;
   margin-right: 100px;
 }
-input {
+.input {
   height: 35px;
   width: 200px;
   font-size: 28px;
@@ -12,7 +12,7 @@ input {
   border-radius: 10px;
   color: #707070;
 }
-input:hover {
+.input:hover {
   box-shadow: 3px 3px 3px #c2ad74;
 }
 .search {

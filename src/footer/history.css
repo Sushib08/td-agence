@@ -1,0 +1,18 @@
+.history-content {
+  background-image: url(history.svg);
+  height: 700px;
+  margin-bottom: 200px;
+}
+.title {
+  font-size: 60px;
+  text-align: center;
+  margin-top: -400px;
+  margin-bottom: 200px;
+  color: white;
+}
+.description-history{
+    width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #707070;
+}
