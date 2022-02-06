@@ -6,9 +6,11 @@ import Menu from "./menu.svg";
 import Twitter from "./twitter.svg";
 import Fb from "./facebook.svg";
 import Pinterest from "./pinterest.svg";
-import "./App.css";
+import Exclusif from "./exclu.svg";
+import LittleHeart from "./littleHeart.svg";
+import Envelope from "./envelope.svg";
 
-export default function App() {
+export default function Exclu() {
   return (
     <div style={{ width: "100%", height: "100%" }}>
       <header>
@@ -48,17 +50,46 @@ export default function App() {
         <Outlet />
       </header>
       <main>
-        <Link to="/exclu" className="exclu">
-          <div className="exclu-content"></div>
-          <div className="descriptionExclu">
-            <h2>House Holiday</h2>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s
-            </p>
+        <h1 style={{color:"#C2AD74", fontSize:"50px", textAlign:"center"}}>House of Holiday - Exclu</h1>
+        <img src={Exclusif} alt="exclu" />
+        <div  className="content-descriptif">
+        <div>
+          <div>
+            <h2 style={{fontSize:"40px"}}>Maison 6 pièces</h2>
+            <h3 style={{fontSize:"30px"}}>150m2</h3>
+            <h4 style={{fontSize:"20px", color:"#707070"}}>Toulon</h4>
+            <h3 style={{fontSize:"35px", color:"#C2AD74"}}>Prix: 350 000€</h3>
+            <div className="buttons" style={{marginRight:"110px"}}>
+              <button className="button" >
+                <img src={LittleHeart} alt="littleheart" />
+              </button>
+              <button className="button">
+                <img src={Envelope} alt="envelope" />
+              </button>
+            </div>
           </div>
-        </Link>
+        </div>
+        <div className="detail">
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry.Lorem Ipsum is simply dummy text of the printing and
+            typesetting industry.Lorem Ipsum is simply dummy text of the
+            printing and typesetting industry.
+          </p>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry.Lorem Ipsum is simply dummy text of the printing and
+            typesetting industry.Lorem Ipsum is simply dummy text of the
+            printing and typesetting industry.Lorem Ipsum is simply dummy text
+            of the printing and typesetting industry.Lorem Ipsum is simply dummy
+            text of the printing and typesetting industry.
+          </p>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry.
+          </p>
+        </div>
+        </div>
       </main>
       <footer
         style={{

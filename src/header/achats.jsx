@@ -4,13 +4,13 @@ import Menu from "../menu.svg";
 import Twitter from "../twitter.svg";
 import Fb from "../facebook.svg";
 import Pinterest from "../pinterest.svg";
-import Glass from "./glass.svg";
+import Glass from "./svg/glass.svg";
 import { Link, useSearchParams } from "react-router-dom";
-import "./achats.css";
+import "./lodging.css";
 import { getList } from "./list";
-import Lodging1 from "./lodging1.svg";
-import LittleHeart from "./littleHeart.svg";
-import Envelope from "./envelope.svg";
+import Lodging1 from "./svg/lodging1.svg";
+import LittleHeart from "./svg/littleHeart.svg";
+import Envelope from "./svg/envelope.svg";
 
 export default function Achats() {
   let achats = getList();
@@ -76,32 +76,33 @@ export default function Achats() {
         </div>
         <div>
           <div className="lodging-content">
-          {achats
-          .filter(achat => {
-            let filter = searchParams.get("filter");
-            if (!filter) return true;
-            let name = achat.title.toLowerCase();
-            return name.startsWith(filter.toLowerCase());
-          }).map((achat) => (
-              <div className="choice-lodging">
-                <Link to={`/achats/${achat.title}`} key={achat.title}>
-                  <img src={Lodging1} alt="lodging" />
-                </Link>
-                <div className="info-lodging">
-                  <h2 className="info1">{achat.title}</h2>
-                  <div className="info2">{achat.price}</div>
+            {achats
+              .filter((achat) => {
+                let filter = searchParams.get("filter");
+                if (!filter) return true;
+                let title = achat.title.toLowerCase();
+                return title.startsWith(filter.toLowerCase());
+              })
+              .map((achat) => (
+                <div className="choice-lodging">
+                  <Link to={`/achats/${achat.title}`} key={achat.title}>
+                    <img src={Lodging1} alt="lodging" />
+                  </Link>
+                  <div className="info-lodging">
+                    <h2 className="info1">{achat.title}</h2>
+                    <div className="info2">{achat.price}</div>
+                  </div>
+                  <div className="info3">{achat.localisation}</div>
+                  <div className="buttons">
+                    <button className="button">
+                      <img src={LittleHeart} alt="littleheart" />
+                    </button>
+                    <button className="button">
+                      <img src={Envelope} alt="envelope" />
+                    </button>
+                  </div>
                 </div>
-                <div className="info3">{achat.localisation}</div>
-                <div className="buttons">
-                  <button className="button">
-                    <img src={LittleHeart} alt="littleheart" />
-                  </button>
-                  <button className="button">
-                    <img src={Envelope} alt="envelope" />
-                  </button>
-                </div>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
       </main>

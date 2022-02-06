@@ -35,10 +35,13 @@ input:hover {
   height: auto;
   width: 329px;
   height: 500px;
-  border-radius: 45px;
+  border-radius: 49px;
+  margin-top: 30px;
 }
 .lodging-content {
     display: flex;
+    flex-wrap: wrap;
+    width: 1500px;
     justify-content: space-around;
 }
 .info-lodging{

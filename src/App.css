@@ -54,3 +54,12 @@
   display: flex;
   justify-content: space-around;
 }
+
+.content-descriptif{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+.detail{
+  width: 600px;
+}
