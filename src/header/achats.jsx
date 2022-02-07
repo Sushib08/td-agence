@@ -4,11 +4,10 @@ import Menu from "../menu.svg";
 import Twitter from "../twitter.svg";
 import Fb from "../facebook.svg";
 import Pinterest from "../pinterest.svg";
-import Glass from "./svg/glass.svg";
+// import Glass from "./svg/glass.svg";
 import { Link, useSearchParams } from "react-router-dom";
 import "./lodging.css";
 import { getList } from "./list";
-import Lodging1 from "./svg/lodging1.svg";
 import LittleHeart from "./svg/littleHeart.svg";
 import Envelope from "./svg/envelope.svg";
 
@@ -70,9 +69,9 @@ export default function Achats() {
               maxLength="14"
               placeholder="Rechercher..."
             />
-            <button className="glass">
+            {/* <button className="glass">
               <img src={Glass} className="glass" alt="glass" />
-            </button>
+            </button> */}
           </div>
         </div>
         <div>
@@ -86,9 +85,11 @@ export default function Achats() {
               })
               .map((achat) => (
                 <div className="choice-lodging">
-                  <Link to={`/achats/${achat.title}`} key={achat.title}>
-                    <img src={Lodging1} alt="lodging" />
+                <div className="content-image">
+                  <Link to="/details">
+                    <img src={achat.path} alt="lodging" style={{width:"100%", height:"300px", objectFit: "cover"}} />
                   </Link>
+                  </div>
                   <div className="info-lodging">
                     <h2 className="info1">{achat.title}</h2>
                     <div className="info2">{achat.price}</div>

@@ -1,7 +1,12 @@
+.main{
+  height: 50vh;
+}
 .service-content {
   width: 600px;
   margin-left: auto;
   margin-right: auto;
+  height: 80vh;
+  margin-top: 100px;
 }
 .content-id {
   width: 300px;
@@ -30,4 +35,10 @@
     width: 250px;
     background-color: #c2ad74;
     border: none;
+}
+.text{
+  font-size: 80px;
+  text-align: center;
+  font-family: 'Segoe UI';
+  color: #c2ad74;
 }

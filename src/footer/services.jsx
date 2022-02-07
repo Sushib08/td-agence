@@ -1,3 +1,5 @@
+import { useState } from "react";
+import React from "react";
 import "../App.css";
 import "./service.css";
 import { Outlet, Link } from "react-router-dom";
@@ -10,17 +12,20 @@ import Pinterest from "../pinterest.svg";
 import Id from "./id.svg";
 
 export default function Services() {
-  // const inputRef = React.createRef(null);
+  const inputRef = React.createRef(null);
 
-  // let [words, setWords] = useState([]);
+  let [words, setWords] = useState();
 
-  // const append = (value) => {
-  //   if (value.trim()) {
-  //     const item = { id: nanoid(), value, isDone: false, isHidden: false };
-  //     setWords([...words, item]);
-  //     inputRef.current.value = "";
-  //   }
-  // };
+  let [button, setButton] = useState(false);
+
+  const append = (value) => {
+    if (value.trim()) {
+      setWords(value);
+      inputRef.current.value = "";
+      setButton(true);
+    }
+    console.log(value);
+  };
 
   return (
     <div style={{ width: "100%", height: "100%" }}>
@@ -60,38 +65,41 @@ export default function Services() {
         </nav>
         <Outlet />
       </header>
-      <main>
-        <div className="service-content">
-          <h1
-            style={{
-              fontFamily: "serif",
-              textAlign: "center",
-              marginBottom: "80px",
-            }}
-          >
-            Pour accéder à votre espace Artimmo, utilisez vos identifiants
-            habituels.
-          </h1>
-          <div className="content-id">
-            <div className="id">
-              <img src={Id} alt="id" style={{ marginRight: "20px" }} />{" "}
-              <input
-                maxLength="14"
-                placeholder="identifiant"
-                className="inputId"
-              />
-            </div>
-            <button
-              className="connexion"
-              // onClick={() => append(inputRef.current.value)}
+      <main className="main">
+        {!button ? (
+          <div className="service-content">
+            <h1
+              style={{
+                fontFamily: "serif",
+                textAlign: "center",
+                marginBottom: "80px",
+              }}
             >
-              Connexion
-            </button>
+              Pour accéder à votre espace Artimmo, utilisez vos identifiants
+              habituels.
+            </h1>
+            <div className="content-id">
+              <div className="id">
+                <img src={Id} alt="id" style={{ marginRight: "20px" }} />{" "}
+                <input
+                  maxLength="14"
+                  placeholder="identifiant"
+                  className="inputId"
+                  ref={inputRef}
+                />
+              </div>
+              <button
+                className="connexion"
+                onClick={() => append(inputRef.current.value)}
+              >
+                Connexion
+              </button>
+            </div>
           </div>
-        </div>
-        {/* <div>
-          <p className="text">{words.value}</p>
-        </div> */}
+        ) : (
+          ""
+        )}
+        <div>{button ? <p className="text">Bienvenue {words}</p> : ""}</div>
       </main>
       <footer
         style={{

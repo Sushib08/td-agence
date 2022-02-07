@@ -7,6 +7,7 @@ import Ventes from "./header/ventes";
 import Locations from "./header/locations";
 import Favoris from "./header/favoris";
 import Menu from "./header/menu";
+import Details from "./header/details";
 import Exclu from "./exclu";
 import History from "./footer/history"
 import Services from "./footer/services"
@@ -19,7 +20,8 @@ render(
         <Route path="menu" element={<Menu />} />
       </Route>
       <Route path="home" element={<Home />} />
-      <Route path="achats" element={<Achats />}></Route>
+      <Route path="achats" element={<Achats />}/>
+      <Route path="details" element={<Details />} />
       <Route path="ventes" element={<Ventes />} />
       <Route path="locations" element={<Locations />} />
       <Route path="favoris" element={<Favoris />} />

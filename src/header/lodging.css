@@ -5,15 +5,20 @@
   margin-right: 100px;
 }
 .input {
+  padding: 5px;
+  padding-left: 15px;
   height: 35px;
   width: 200px;
-  font-size: 28px;
-  border-color: #707070;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  background-color: #EEE;
   border-radius: 10px;
   color: #707070;
+  margin-right: 50px;
 }
 .input:hover {
-  box-shadow: 3px 3px 3px #c2ad74;
+  border: 1px solid #c2ad74;
 }
 .search {
   display: flex;
@@ -37,6 +42,7 @@
   height: 500px;
   border-radius: 49px;
   margin-top: 30px;
+  overflow: hidden;
 }
 .lodging-content {
     display: flex;
@@ -75,4 +81,9 @@
 }
 .button:focus{
   background-color: #c2ad74;
+}
+
+.content-image{
+  height: 65%;
+  overflow: hidden;
 }
